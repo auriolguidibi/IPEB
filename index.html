@@ -1,0 +1,831 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IPEB — Interprofession du Poisson d'Élevage du Bénin</title>
+  <meta name="description" content="L'IPEB fédère les acteurs de la filière du poisson d'élevage au Bénin : pisciculteurs, producteurs d'alevins, fabricants d'aliments, transformateurs et distributeurs. Une filière organisée, financée et durable." />
+  <meta name="theme-color" content="#14432f" />
+  <meta property="og:title" content="IPEB — Interprofession du Poisson d'Élevage du Bénin" />
+  <meta property="og:description" content="Fédérer, structurer et financer l'aquaculture béninoise." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="assets/img/hero-poster.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%2314432f'/%3E%3Cpath d='M7 26c6-10 15-13 24-11-3 3-4 7-3 10 4 1 8 3 10 7-9 3-19 2-26-2l-5-4Z' fill='none' stroke='%23c58a2b' stroke-width='2.4' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='24' r='1.6' fill='%23c58a2b'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <noscript><style>.reveal{opacity:1 !important;transform:none !important}.scroll-progress{display:none !important}</style></noscript>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+  <a class="skip-link" href="#top">Aller au contenu</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" aria-label="IPEB — accueil">
+        <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M6 26c7-12 17-16 27-14-3 4-4 8-3 12 5 1 9 4 12 8-10 3-22 2-30-2l-6-4Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="16.5" cy="24" r="1.8" fill="currentColor"/>
+          <path d="M33 12c3 1 5 4 5 7M38 6c5 2 8 7 8 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">IPEB</span>
+          <span class="brand__sub">Poisson d'Élevage du Bénin</span>
+        </span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Navigation principale">
+        <a href="#apropos">L'interprofession</a>
+        <a href="#president">Le président</a>
+        <a href="#filiere">La filière</a>
+        <a href="#chiffres">Chiffres</a>
+        <a href="#jonapeb">JoNaPEB</a>
+        <a href="#actualites">Actualités</a>
+        <a class="nav__cta" href="#adhesion">Adhérer</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top" tabindex="-1">
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__media" aria-hidden="true">
+        <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg">
+          <source src="assets/video/hero-720.mp4" type="video/mp4" media="(max-width: 760px)" />
+          <source src="assets/video/hero-1080.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="hero__kicker reveal" data-reveal>
+          <span class="hero__kicker-line"></span>
+          Interprofession du Poisson d'Élevage du Bénin
+        </p>
+
+        <h1 class="hero__title" id="heroTitle">
+          <span class="reveal" data-reveal>Faire du poisson d'élevage</span>
+          <span class="reveal" data-reveal>une <em>force nationale.</em></span>
+        </h1>
+
+        <p class="hero__lead reveal" data-reveal>
+          L'IPEB fédère les pisciculteurs, producteurs d'alevins, fabricants d'aliments,
+          transformateurs et distributeurs pour bâtir une filière durable, compétitive
+          et souveraine.
+        </p>
+
+        <div class="hero__actions reveal" data-reveal>
+          <a class="btn btn--light" href="#filiere">
+            <span>Découvrir la filière</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn--outline-light" href="#adhesion">Devenir membre</a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="keyfigures" aria-labelledby="keyfiguresTitle">
+      <div class="container">
+        <div class="keyfigures__inner">
+          <h2 class="keyfigures__title" id="keyfiguresTitle"><span aria-hidden="true"></span>L'IPEB en chiffres</h2>
+          <div class="keyfigures__grid">
+            <div class="keyfigure">
+              <span class="keyfigure__value">500+</span>
+              <span class="keyfigure__label">fermes piscicoles au Bénin</span>
+            </div>
+            <div class="keyfigure">
+              <span class="keyfigure__value">6</span>
+              <span class="keyfigure__label">maillons de la chaîne de valeur</span>
+            </div>
+            <div class="keyfigure">
+              <span class="keyfigure__value">23,6</span>
+              <span class="keyfigure__label">milliards FCFA — projet PROMAC</span>
+            </div>
+            <div class="keyfigure">
+              <span class="keyfigure__value">2023</span>
+              <span class="keyfigure__label">premières Journées nationales</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="apropos" aria-labelledby="aboutTitle">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__media reveal" data-reveal>
+            <figure class="about__figure">
+              <img src="assets/img/acadja.jpg" alt="Vue d'acadjas installés sur le lac Nokoué, au sud du Bénin" loading="lazy" />
+              <figcaption>Lac Nokoué, Bénin</figcaption>
+            </figure>
+          </div>
+
+          <div class="about__content">
+            <p class="label reveal" data-reveal><span>01</span> L'interprofession</p>
+            <h2 class="section__title reveal" data-reveal id="aboutTitle">
+              Une filière,<br /><em>une voix.</em>
+            </h2>
+            <p class="reveal" data-reveal>
+              L'<strong>Interprofession du Poisson d'Élevage du Bénin (IPEB)</strong> réunit
+              les femmes et les hommes qui font vivre la pisciculture béninoise. Elle porte
+              une conviction : aucune filière ne se développe durablement sans dialogue
+              entre ses maillons.
+            </p>
+            <p class="reveal" data-reveal>
+              De l'écloserie à l'étal, l'IPEB organise la concertation entre les
+              professionnels, l'État et les partenaires techniques et financiers, et crée
+              les conditions d'une croissance durable.
+            </p>
+
+            <ul class="about__pillars reveal" data-reveal>
+              <li><span>01</span>Représenter les professionnels</li>
+              <li><span>02</span>Structurer la chaîne de valeur</li>
+              <li><span>03</span>Faciliter l'accès au financement</li>
+            </ul>
+
+            <div class="about__statement reveal" data-reveal>
+              <span class="about__statement-label">Notre cap</span>
+              <p>Une filière organisée, financée et tournée vers le consommateur béninois.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section president" id="president" aria-labelledby="presidentTitle">
+      <h2 class="sr-only" id="presidentTitle">Le mot du président</h2>
+      <div class="container">
+        <div class="president__grid">
+          <div class="president__media reveal" data-reveal>
+            <figure class="president__figure">
+              <img src="assets/img/president.jpg" alt="Christian Guidibi, président de l'IPEB, lors de son allocution aux Journées nationales du poisson d'élevage" loading="lazy" />
+              <figcaption><span>JoNaPEB 2023</span> Ouidah, Bénin</figcaption>
+            </figure>
+          </div>
+
+          <div class="president__content">
+            <p class="label label--light reveal" data-reveal><span>02</span> Le mot du président</p>
+            <blockquote class="president__quote reveal" data-reveal>
+              <p>Le mécanisme de financement permet de <em>partager le risque de crédit</em> entre tous les maillons de la chaîne de valeur.</p>
+              <footer>
+                <strong>Christian Guidibi</strong>
+                <span>Président de l'Interprofession du Poisson d'Élevage du Bénin</span>
+              </footer>
+            </blockquote>
+            <p class="president__text reveal" data-reveal>
+              À la tête de l'IPEB, il porte une conviction simple : la force de la filière
+              viendra de sa capacité à parler d'une seule voix, à mutualiser ses moyens et
+              à construire des alliances durables entre les acteurs.
+            </p>
+            <a class="president__link reveal" data-reveal href="#adhesion">
+              Rejoindre la dynamique
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section missions" id="missions" aria-labelledby="missionsTitle">
+      <div class="container">
+        <div class="section__head">
+          <p class="label reveal" data-reveal><span>03</span> Missions</p>
+          <div class="section__head-row">
+            <h2 class="section__title reveal" data-reveal id="missionsTitle">
+              Ce que nous faisons<br /><em>pour la filière.</em>
+            </h2>
+            <p class="section__intro reveal" data-reveal>
+              Six engagements pour structurer, défendre et faire grandir la pisciculture
+              béninoise, du producteur au consommateur.
+            </p>
+          </div>
+        </div>
+
+        <div class="missions__grid">
+          <article class="mission reveal" data-reveal>
+            <div class="mission__icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26V13l10-7 10 7v13M12 26v-8h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="mission__num">01</span>
+            <h3>Représenter</h3>
+            <p>Porter la voix des pisciculteurs et défendre les intérêts de la filière auprès de l'État et des institutions.</p>
+          </article>
+
+          <article class="mission reveal" data-reveal>
+            <div class="mission__icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 6v20M6 16h20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <span class="mission__num">02</span>
+            <h3>Structurer</h3>
+            <p>Organiser les maillons de la chaîne de valeur et renforcer la coopération entre producteurs, transformateurs et distributeurs.</p>
+          </article>
+
+          <article class="mission reveal" data-reveal>
+            <div class="mission__icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 24h22M8 24V14M16 24V8M24 24v-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <span class="mission__num">03</span>
+            <h3>Réguler</h3>
+            <p>Veiller à la stabilité du marché, notamment sur les prix du poisson d'élevage et la qualité des intrants.</p>
+          </article>
+
+          <article class="mission reveal" data-reveal>
+            <div class="mission__icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 10v6l4 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="mission__num">04</span>
+            <h3>Financer</h3>
+            <p>Faciliter l'accès au crédit grâce à un mécanisme inclusif et solidaire de partage du risque.</p>
+          </article>
+
+          <article class="mission reveal" data-reveal>
+            <div class="mission__icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5 6 10l10 5 10-5-10-5ZM6 16l10 5 10-5M6 22l10 5 10-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="mission__num">05</span>
+            <h3>Former</h3>
+            <p>Renforcer les capacités techniques et entrepreneuriales des acteurs, des jeunes et des femmes de la filière.</p>
+          </article>
+
+          <article class="mission reveal" data-reveal>
+            <div class="mission__icon">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27s9-6.5 9-14a9 9 0 0 0-18 0c0 7.5 9 14 9 14Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="13" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
+            <span class="mission__num">06</span>
+            <h3>Plaidoyer</h3>
+            <p>Faire du poisson d'élevage une priorité nationale : sécurité alimentaire, emploi et souveraineté protéique.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto" aria-labelledby="manifestoTitle">
+      <div class="container">
+        <div class="manifesto__inner">
+          <p class="manifesto__label reveal" data-reveal>Notre conviction</p>
+          <h2 class="manifesto__title reveal" data-reveal id="manifestoTitle">
+            Le poisson d'élevage n'est pas une niche.<br />
+            <em>C'est une filière d'avenir.</em>
+          </h2>
+          <div class="manifesto__row reveal" data-reveal>
+            <p>
+              Une filière qui nourrit, qui emploie et qui exporte. Une filière qui se
+              structure, se finance et se transforme localement. C'est cette ambition
+              que l'IPEB porte chaque jour.
+            </p>
+            <a class="manifesto__link" href="#filiere">
+              Explorer la filière
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section chain" id="filiere" aria-labelledby="chainTitle">
+      <div class="container">
+        <div class="section__head">
+          <p class="label reveal" data-reveal><span>04</span> La filière</p>
+          <div class="section__head-row">
+            <h2 class="section__title reveal" data-reveal id="chainTitle">
+              Du bassin à l'assiette,<br /><em>six maillons reliés.</em>
+            </h2>
+            <p class="section__intro reveal" data-reveal>
+              Chaque étape compte. L'IPEB agit sur l'ensemble de la chaîne de valeur
+              pour garantir qualité, revenus et débouchés.
+            </p>
+          </div>
+        </div>
+
+        <div class="chain__grid">
+          <div class="chain__visual reveal" data-reveal>
+            <div class="chain__image-wrap">
+              <img id="chainImage" src="assets/img/tilapia.jpg" alt="Alevins et production de tilapia dans une ferme aquacole" loading="lazy" />
+            </div>
+            <div class="chain__caption">
+              <span class="chain__caption-num" id="chainNum">01</span>
+              <span class="chain__caption-label" id="chainLabel">Alevins &amp; semences</span>
+            </div>
+          </div>
+
+          <div class="chain__list reveal" data-reveal>
+            <button class="chain-item is-active" type="button" data-step="0" data-image="assets/img/tilapia.jpg" data-label="Alevins &amp; semences" aria-expanded="true">
+              <span class="chain-item__head">
+                <span class="chain-item__num">01</span>
+                <span class="chain-item__name">Alevins &amp; semences</span>
+                <span class="chain-item__icon" aria-hidden="true"></span>
+              </span>
+              <span class="chain-item__body">
+                <span class="chain-item__text">La disponibilité d'alevins de qualité est le premier levier de la filière. L'IPEB accompagne les écloseries, accélère la délivrance des autorisations d'exploitation et promeut la diversification des espèces.</span>
+                <span class="chain-item__tags"><span>Écloseries</span><span>Semences de qualité</span><span>Diversification</span></span>
+              </span>
+            </button>
+
+            <button class="chain-item" type="button" data-step="1" data-image="assets/img/setup.jpg" data-label="Alimentation &amp; intrants" aria-expanded="false">
+              <span class="chain-item__head">
+                <span class="chain-item__num">02</span>
+                <span class="chain-item__name">Alimentation &amp; intrants</span>
+                <span class="chain-item__icon" aria-hidden="true"></span>
+              </span>
+              <span class="chain-item__body">
+                <span class="chain-item__text">La pénurie et le coût élevé des aliments pèsent directement sur la production. L'interprofession œuvre pour la disponibilité d'aliments de qualité et le développement d'unités de production locales.</span>
+                <span class="chain-item__tags"><span>Aliments de qualité</span><span>Production locale</span><span>Maîtrise des coûts</span></span>
+              </span>
+            </button>
+
+            <button class="chain-item" type="button" data-step="2" data-image="assets/img/ponds.jpg" data-label="Production piscicole" aria-expanded="false">
+              <span class="chain-item__head">
+                <span class="chain-item__num">03</span>
+                <span class="chain-item__name">Production piscicole</span>
+                <span class="chain-item__icon" aria-hidden="true"></span>
+              </span>
+              <span class="chain-item__body">
+                <span class="chain-item__text">Des centaines de fermes, souvent de petite taille, font vivre la filière. L'IPEB renforce leurs compétences techniques et soutient la modernisation des outils de production.</span>
+                <span class="chain-item__tags"><span>500+ fermes</span><span>Tilapia &amp; Clarias</span><span>Capacités</span></span>
+              </span>
+            </button>
+
+            <button class="chain-item" type="button" data-step="3" data-image="assets/img/dried.jpg" data-label="Transformation &amp; valorisation" aria-expanded="false">
+              <span class="chain-item__head">
+                <span class="chain-item__num">04</span>
+                <span class="chain-item__name">Transformation &amp; valorisation</span>
+                <span class="chain-item__icon" aria-hidden="true"></span>
+              </span>
+              <span class="chain-item__body">
+                <span class="chain-item__text">Transformer localement, c'est créer de la valeur et réduire les pertes. La filière développe la conservation, le conditionnement et la valorisation des produits halieutiques.</span>
+                <span class="chain-item__tags"><span>Conservation</span><span>Conditionnement</span><span>Valeur locale</span></span>
+              </span>
+            </button>
+
+            <button class="chain-item" type="button" data-step="4" data-image="assets/img/market.jpg" data-label="Distribution &amp; chaîne du froid" aria-expanded="false">
+              <span class="chain-item__head">
+                <span class="chain-item__num">05</span>
+                <span class="chain-item__name">Distribution &amp; chaîne du froid</span>
+                <span class="chain-item__icon" aria-hidden="true"></span>
+              </span>
+              <span class="chain-item__body">
+                <span class="chain-item__text">Le transport du poisson vivant et la chaîne du froid sont déterminants. Des équipements ont été remis aux coopératives pour améliorer la commercialisation et la qualité des produits.</span>
+                <span class="chain-item__tags"><span>Transport du vivant</span><span>Chaîne du froid</span><span>Marchés</span></span>
+              </span>
+            </button>
+
+            <button class="chain-item" type="button" data-step="5" data-image="assets/img/workers-2.jpg" data-label="Consommation &amp; sécurité alimentaire" aria-expanded="false">
+              <span class="chain-item__head">
+                <span class="chain-item__num">06</span>
+                <span class="chain-item__name">Consommation &amp; sécurité alimentaire</span>
+                <span class="chain-item__icon" aria-hidden="true"></span>
+              </span>
+              <span class="chain-item__body">
+                <span class="chain-item__text">Le poisson d'élevage est une source accessible de protéines. L'IPEB promeut sa consommation auprès des familles, des cantines et de la restauration pour renforcer la sécurité alimentaire.</span>
+                <span class="chain-item__tags"><span>Protéines accessibles</span><span>Restauration</span><span>Sécurité alimentaire</span></span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats" id="chiffres" aria-labelledby="statsTitle">
+      <div class="container">
+        <div class="section__head section__head--light">
+          <p class="label label--light reveal" data-reveal><span>05</span> Chiffres clés</p>
+          <div class="section__head-row">
+            <h2 class="section__title section__title--light reveal" data-reveal id="statsTitle">
+              Une filière<br /><em>en mouvement.</em>
+            </h2>
+            <p class="section__intro section__intro--light reveal" data-reveal>
+              Des repères pour comprendre les dynamiques, les besoins et le potentiel de
+              la pisciculture béninoise.
+            </p>
+          </div>
+        </div>
+
+        <div class="stats__grid">
+          <div class="stat reveal" data-reveal>
+            <span class="stat__value"><span data-count="500">0</span><span class="stat__unit">+</span></span>
+            <span class="stat__label">fermes piscicoles recensées au Bénin</span>
+          </div>
+          <div class="stat reveal" data-reveal>
+            <span class="stat__value"><span data-count="773">0</span><span class="stat__unit">t</span></span>
+            <span class="stat__label">production de poisson d'élevage en 2023</span>
+          </div>
+          <div class="stat reveal" data-reveal>
+            <span class="stat__value"><span data-count="595.5" data-decimals="1">0</span><span class="stat__unit">t</span></span>
+            <span class="stat__label">production estimée en 2024</span>
+          </div>
+          <div class="stat reveal" data-reveal>
+            <span class="stat__value"><span data-count="23.6" data-decimals="1">0</span><span class="stat__unit">Mds</span></span>
+            <span class="stat__label">FCFA mobilisés par le projet PROMAC</span>
+          </div>
+          <div class="stat reveal" data-reveal>
+            <span class="stat__value"><span data-count="65">0</span><span class="stat__unit">M</span></span>
+            <span class="stat__label">alevins visés chaque année (PROMAC)</span>
+          </div>
+          <div class="stat reveal" data-reveal>
+            <span class="stat__value"><span data-count="30000">0</span><span class="stat__unit">t</span></span>
+            <span class="stat__label">d'aliments pour poissons à produire</span>
+          </div>
+        </div>
+
+        <p class="stats__note reveal" data-reveal>
+          Sources : Swisscontact, Gouvernement du Bénin, Banque africaine de développement (PROMAC).
+        </p>
+      </div>
+    </section>
+
+    <section class="section finance" id="financement" aria-labelledby="financeTitle">
+      <div class="container">
+        <div class="finance__grid">
+          <div class="finance__content">
+            <p class="label reveal" data-reveal><span>06</span> Financement</p>
+            <h2 class="section__title reveal" data-reveal id="financeTitle">
+              Un crédit qui se partage<br /><em>entre tous les maillons.</em>
+            </h2>
+            <p class="reveal" data-reveal>
+              Le manque de garanties et la méconnaissance du métier piscicole freinent
+              encore l'accès au financement. L'IPEB porte un mécanisme solidaire qui
+              répartit le risque de crédit sur l'ensemble de la chaîne de valeur, pour
+              que chaque acteur puisse investir et grandir.
+            </p>
+
+            <div class="finance__pillars reveal" data-reveal>
+              <div class="finance__pillar">
+                <span class="finance__pillar-num">01</span>
+                <div>
+                  <h3>Garanties partagées</h3>
+                  <p>Le risque est réparti entre les maillons plutôt que supporté par un seul acteur.</p>
+                </div>
+              </div>
+              <div class="finance__pillar">
+                <span class="finance__pillar-num">02</span>
+                <div>
+                  <h3>Confiance des institutions</h3>
+                  <p>Un dialogue structuré avec les services financiers pour mieux faire connaître la filière.</p>
+                </div>
+              </div>
+              <div class="finance__pillar">
+                <span class="finance__pillar-num">03</span>
+                <div>
+                  <h3>Investissements structurants</h3>
+                  <p>Équipements, infrastructures et intrants pour lever les freins à la production.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="finance__media reveal" data-reveal>
+            <img src="assets/img/oxygen.jpg" alt="Dispositif d'oxygénation de l'eau dans une installation aquacole au Bénin" loading="lazy" />
+            <div class="finance__card">
+              <span class="finance__card-label">Mécanisme IPEB</span>
+              <span class="finance__card-title">Risque partagé</span>
+              <span class="finance__card-text">entre tous les maillons de la chaîne de valeur</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section events" id="jonapeb" aria-labelledby="eventsTitle">
+      <div class="container">
+        <div class="section__head">
+          <p class="label reveal" data-reveal><span>07</span> JoNaPEB</p>
+          <div class="section__head-row">
+            <h2 class="section__title reveal" data-reveal id="eventsTitle">
+              Les Journées Nationales<br /><em>du Poisson d'Élevage.</em>
+            </h2>
+            <p class="section__intro reveal" data-reveal>
+              Un rendez-vous annuel pour célébrer les acteurs, partager les innovations et
+              faire dialoguer professionnels, État et partenaires.
+            </p>
+          </div>
+        </div>
+
+        <div class="events__grid">
+          <article class="event reveal" data-reveal>
+            <a class="event__media" href="#adhesion" aria-label="En savoir plus sur l'édition 2023">
+              <img src="assets/img/workers-1.jpg" alt="Acteurs de la filière piscicole au travail" loading="lazy" />
+            </a>
+            <div class="event__body">
+              <div class="event__meta">
+                <span class="event__edition">2<sup>e</sup> édition</span>
+                <span class="event__year">2023</span>
+              </div>
+              <h3>Ouidah &amp; Dassa</h3>
+              <p>
+                Du 30 novembre au 2 décembre à Ouidah, puis du 7 au 9 décembre à Dassa,
+                pour toucher le centre-sud du Bénin et réunir pisciculteurs, entreprises
+                et organisations.
+              </p>
+              <div class="event__tags"><span>Panels</span><span>Exposition</span><span>Récompenses</span></div>
+            </div>
+          </article>
+
+          <article class="event reveal" data-reveal>
+            <a class="event__media" href="#adhesion" aria-label="En savoir plus sur l'édition 2024">
+              <img src="assets/img/hero.jpg" alt="Vue de la filière piscicole béninoise" loading="lazy" />
+            </a>
+            <div class="event__body">
+              <div class="event__meta">
+                <span class="event__edition">3<sup>e</sup> édition</span>
+                <span class="event__year">2024</span>
+              </div>
+              <h3>Covè</h3>
+              <p>
+                À la Maison des Jeunes de Covè, l'édition 2024 a accompagné la remise
+                d'équipements aux coopératives et entreprises de pisciculture, avec
+                l'appui de l'État et de l'AFD.
+              </p>
+              <div class="event__tags"><span>Équipements</span><span>Coopératives</span><span>Innovation</span></div>
+            </div>
+          </article>
+
+          <article class="event reveal" data-reveal>
+            <a class="event__media" href="#adhesion" aria-label="En savoir plus sur le rendez-vous annuel">
+              <img src="assets/img/pond.jpg" alt="Bassin d'aquaculture au Bénin" loading="lazy" />
+            </a>
+            <div class="event__body">
+              <div class="event__meta">
+                <span class="event__edition">Le rendez-vous</span>
+                <span class="event__year">Annuel</span>
+              </div>
+              <h3>Une filière qui se rencontre</h3>
+              <p>
+                Tables rondes sur la diversification des espèces, les mécanismes de
+                financement, la valorisation des infrastructures et le partage
+                d'expériences entre les pôles aquacoles.
+              </p>
+              <div class="event__tags"><span>Diversification</span><span>Financement</span><span>Territoires</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="terrain" aria-labelledby="galleryTitle">
+      <div class="container">
+        <div class="section__head">
+          <p class="label reveal" data-reveal><span>08</span> Sur le terrain</p>
+          <div class="section__head-row">
+            <h2 class="section__title reveal" data-reveal id="galleryTitle">
+              Des visages,<br /><em>des savoir-faire.</em>
+            </h2>
+            <p class="section__intro reveal" data-reveal>
+              Fermes, marchés, ateliers, innovations : la filière se vit au quotidien,
+              portée par des femmes et des hommes qui la font grandir.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery__grid">
+          <figure class="gallery__item">
+            <img src="assets/img/workers-1.jpg" alt="Pisciculteurs au travail dans une exploitation aquacole" loading="lazy" />
+            <figcaption><span>Production</span>Le travail des pisciculteurs</figcaption>
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/market.jpg" alt="Vendeuses de poisson frais sur un marché du Bénin" loading="lazy" />
+            <figcaption><span>Distribution</span>La vente sur les marchés</figcaption>
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/oxygen.jpg" alt="Dispositif d'oxygénation de l'eau dans une installation aquacole" loading="lazy" />
+            <figcaption><span>Innovation</span>L'oxygénation des bassins</figcaption>
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/dried.jpg" alt="Petits poissons séchés sur un marché béninois" loading="lazy" />
+            <figcaption><span>Transformation</span>Le poisson séché</figcaption>
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/pond.jpg" alt="Bassin d'aquaculture au Bénin" loading="lazy" />
+            <figcaption><span>Infrastructures</span>Les bassins de production</figcaption>
+          </figure>
+          <figure class="gallery__item">
+            <img src="assets/img/tilapia.jpg" alt="Élevage de tilapia dans une ferme aquacole" loading="lazy" />
+            <figcaption><span>Semences</span>L'élevage du tilapia</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section partners" id="partenaires" aria-labelledby="partnersTitle">
+      <div class="container">
+        <div class="section__head">
+          <p class="label reveal" data-reveal><span>09</span> Partenaires</p>
+          <div class="section__head-row">
+            <h2 class="section__title reveal" data-reveal id="partnersTitle">
+              Une filière<br /><em>qui avance ensemble.</em>
+            </h2>
+            <p class="section__intro reveal" data-reveal>
+              Institutions, bailleurs et organisations professionnelles : des alliances au
+              service du développement de l'aquaculture béninoise.
+            </p>
+          </div>
+        </div>
+
+        <div class="partners__grid reveal" data-reveal>
+          <div class="partner">MAEP</div>
+          <div class="partner">ATDA 7</div>
+          <div class="partner">Swisscontact</div>
+          <div class="partner">AFD</div>
+          <div class="partner">BAD</div>
+          <div class="partner">PROMAC</div>
+          <div class="partner">ANaCEP-Bénin</div>
+          <div class="partner">PADéFiP</div>
+          <div class="partner">PADEP-Bénin</div>
+          <div class="partner">Béninclusif</div>
+          <div class="partner">ANaDIPE-Bénin</div>
+          <div class="partner">APDRA</div>
+        </div>
+        <p class="partners__note reveal" data-reveal>
+          Partenaires institutionnels, techniques et financiers cités dans les publications officielles.
+        </p>
+      </div>
+    </section>
+
+    <section class="section news" id="actualites" aria-labelledby="newsTitle">
+      <div class="container">
+        <div class="section__head">
+          <p class="label reveal" data-reveal><span>10</span> Actualités</p>
+          <div class="section__head-row">
+            <h2 class="section__title reveal" data-reveal id="newsTitle">
+              Ce qui fait<br /><em>bouger la filière.</em>
+            </h2>
+            <p class="section__intro reveal" data-reveal>
+              Les faits marquants, les investissements et les initiatives qui façonnent
+              l'aquaculture béninoise.
+            </p>
+          </div>
+        </div>
+
+        <div class="news__grid">
+          <article class="news-card reveal" data-reveal>
+            <a class="news-card__media" href="#adhesion" aria-label="Lire : la production de poisson d'élevage en recul">
+              <img src="assets/img/ponds.jpg" alt="Bassins de pisciculture" loading="lazy" />
+              <span class="news-card__tag">Production</span>
+            </a>
+            <div class="news-card__body">
+              <h3><a href="#adhesion">La production de poisson d'élevage en recul</a></h3>
+              <p>
+                De 773 tonnes en 2023 à environ 595,5 tonnes en 2024, la filière subit la
+                pénurie et le coût élevé des aliments, ainsi que les difficultés de marché
+                pour le Clarias.
+              </p>
+              <span class="news-card__meta">Source : Swisscontact, 2024</span>
+            </div>
+          </article>
+
+          <article class="news-card reveal" data-reveal>
+            <a class="news-card__media" href="#adhesion" aria-label="Lire : PROMAC, un appui structurant">
+              <img src="assets/img/oxygen.jpg" alt="Installation aquacole avec dispositif d'oxygénation" loading="lazy" />
+              <span class="news-card__tag">Investissement</span>
+            </a>
+            <div class="news-card__body">
+              <h3><a href="#adhesion">PROMAC : un appui structurant de 23,6 milliards FCFA</a></h3>
+              <p>
+                Financé par la BAD et l'État béninois, le projet vise 65 millions d'alevins
+                par an, 30 000 tonnes d'aliments et le développement d'infrastructures
+                aquacoles.
+              </p>
+              <span class="news-card__meta">Source : Banque africaine de développement</span>
+            </div>
+          </article>
+
+          <article class="news-card reveal" data-reveal>
+            <a class="news-card__media" href="#adhesion" aria-label="Lire : des équipements remis aux pisciculteurs">
+              <img src="assets/img/workers-1.jpg" alt="Pisciculteurs au travail" loading="lazy" />
+              <span class="news-card__tag">Terrain</span>
+            </a>
+            <div class="news-card__body">
+              <h3><a href="#adhesion">Des équipements remis aux pisciculteurs</a></h3>
+              <p>
+                Un système motorisé de transport de poissons vivants et une unité de
+                production d'aliments locaux ont été remis aux coopératives et entreprises
+                de pisciculture.
+              </p>
+              <span class="news-card__meta">Source : Gouvernement du Bénin, 2024</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section join" id="adhesion" aria-labelledby="joinTitle">
+      <div class="container">
+        <div class="join__grid">
+          <div class="join__intro">
+            <p class="label label--light reveal" data-reveal><span>11</span> Adhésion</p>
+            <h2 class="section__title section__title--light reveal" data-reveal id="joinTitle">
+              Rejoignez<br /><em>l'interprofession.</em>
+            </h2>
+            <p class="reveal" data-reveal>
+              Producteur, écloserie, fabricant d'aliments, transformateur, distributeur ou
+              partenaire : prenez part à la construction d'une filière aquacole béninoise
+              forte et durable.
+            </p>
+            <ul class="join__list reveal" data-reveal>
+              <li>Accès au réseau des professionnels de la filière</li>
+              <li>Participation aux concertations et aux JoNaPEB</li>
+              <li>Accompagnement et information sur les financements</li>
+            </ul>
+          </div>
+
+          <form class="form reveal" data-reveal id="joinForm" novalidate>
+            <h3 class="form__title">Demande d'adhésion</h3>
+            <div class="form__row">
+              <label for="name">Nom complet</label>
+              <input id="name" name="name" type="text" placeholder="Votre nom" required />
+            </div>
+            <div class="form__row">
+              <label for="structure">Structure / organisation</label>
+              <input id="structure" name="structure" type="text" placeholder="Nom de votre structure" />
+            </div>
+            <div class="form__row">
+              <label for="email">Adresse e-mail</label>
+              <input id="email" name="email" type="email" placeholder="vous@exemple.com" required />
+            </div>
+            <div class="form__row">
+              <label for="profil">Profil</label>
+              <select id="profil" name="profil">
+                <option>Pisciculteur / piscicultrice</option>
+                <option>Écloserie / producteur d'alevins</option>
+                <option>Fabricant d'aliments</option>
+                <option>Transformateur</option>
+                <option>Distributeur</option>
+                <option>Partenaire / institution</option>
+              </select>
+            </div>
+            <div class="form__row form__row--full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Parlez-nous de votre activité"></textarea>
+            </div>
+            <button class="btn btn--dark form__submit" type="submit">
+              <span>Envoyer ma demande</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand brand--footer" href="#top">
+            <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
+              <path d="M6 26c7-12 17-16 27-14-3 4-4 8-3 12 5 1 9 4 12 8-10 3-22 2-30-2l-6-4Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+              <circle cx="16.5" cy="24" r="1.8" fill="currentColor"/>
+              <path d="M33 12c3 1 5 4 5 7M38 6c5 2 8 7 8 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="brand__text">
+              <span class="brand__name">IPEB</span>
+              <span class="brand__sub">Poisson d'Élevage du Bénin</span>
+            </span>
+          </a>
+          <p>Interprofession du Poisson d'Élevage du Bénin.<br />Fédérer, structurer et financer l'aquaculture béninoise.</p>
+        </div>
+
+        <div class="footer__col">
+          <h4>L'interprofession</h4>
+          <a href="#apropos">L'interprofession</a>
+          <a href="#president">Le président</a>
+          <a href="#missions">Missions</a>
+          <a href="#filiere">La filière</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>La filière</h4>
+          <a href="#jonapeb">JoNaPEB</a>
+          <a href="#partenaires">Partenaires</a>
+          <a href="#actualites">Actualités</a>
+          <a href="#adhesion">Adhésion</a>
+        </div>
+
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <a href="mailto:contact@ipeb.bj">contact@ipeb.bj</a>
+          <span>Bénin</span>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="LinkedIn">IN</a>
+            <a href="#" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> IPEB — Interprofession du Poisson d'Élevage du Bénin.</span>
+        <span class="footer__credits">Photos : Wikimedia Commons — licences Creative Commons.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
