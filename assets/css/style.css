@@ -208,7 +208,7 @@ section[id]{scroll-margin-top:88px}
   position:relative;
   z-index:2;
 }
-.brand__mark{width:38px;height:38px;flex-shrink:0}
+.brand__mark{width:44px;height:44px;flex-shrink:0}
 .brand__logo{
   border-radius:50%;
   padding:2px;
@@ -1497,7 +1497,7 @@ section[id]{scroll-margin-top:88px}
   .section{padding:44px 0}
   .brand__name{font-size:1.25rem}
   .brand__sub{font-size:.48rem;letter-spacing:.1em}
-  .brand__mark{width:34px;height:34px}
+  .brand__mark{width:38px;height:38px}
   .nav__links{padding:calc(92px + env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom))}
   .nav__links a{font-size:1.4rem;padding:14px 0}
   .hero__kicker{font-size:.68rem;letter-spacing:.12em;gap:9px}
