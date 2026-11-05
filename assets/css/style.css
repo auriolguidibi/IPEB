@@ -432,7 +432,7 @@ section[id]{scroll-margin-top:88px}
   align-items:center;
   gap:10px;
   margin:0;
-  color:var(--green-3);
+  color:var(--green);
   font-family:var(--body);
   font-size:.62rem;
   font-weight:600;
@@ -1395,7 +1395,8 @@ section[id]{scroll-margin-top:88px}
     align-items:stretch;
     justify-content:flex-start;
     gap:0;
-    padding:104px 32px 40px;
+    height:100dvh;
+    padding:calc(104px + env(safe-area-inset-top)) 32px calc(40px + env(safe-area-inset-bottom));
     background:var(--white);
     color:var(--ink);
     opacity:0;
@@ -1436,46 +1437,86 @@ section[id]{scroll-margin-top:88px}
   .chain__visual{position:static}
   .president__grid{align-items:start}
   .manifesto__row{grid-template-columns:1fr;gap:24px;align-items:start}
+  .president__link,
+  .manifesto__link{min-height:44px;padding:10px 0;align-items:center}
+  .form__row input,
+  .form__row select,
+  .form__row textarea{font-size:16px}
 }
 
 @media (max-width:760px){
-  .container{padding:0 20px}
-  .nav__inner{padding:0 20px}
-  .section{padding:64px 0}
-  .hero__inner{padding:118px 20px 34px}
-  .hero__title{font-size:clamp(2.45rem,9vw,3.7rem)}
-  .hero__lead{font-size:.96rem}
-  .keyfigures__inner{grid-template-columns:1fr;gap:18px;padding:26px 0}
-  .keyfigures__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 24px}
-  .keyfigure__value{font-size:1.7rem}
+  .container{padding:0 18px}
+  .nav__inner{padding:0 18px}
+  .section{padding:52px 0}
+  .hero__inner{padding:106px 18px 40px}
+  .hero__title{font-size:clamp(2.1rem,9.4vw,3.4rem);line-height:1.06}
+  .hero__lead{font-size:1rem;line-height:1.68;margin-top:20px}
+  .hero__actions{margin-top:26px}
+  .section__title{font-size:clamp(1.8rem,7.6vw,2.7rem)}
+  .section__intro{font-size:.95rem}
+  .label{font-size:.72rem;margin-bottom:14px}
+  .keyfigures__inner{grid-template-columns:1fr;gap:16px;padding:24px 0}
+  .keyfigures__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+  .keyfigure__value{font-size:1.9rem}
+  .keyfigure__label{max-width:none;font-size:.78rem}
+  .mission h3{font-size:1.2rem}
+  .mission p{font-size:.9rem}
   .missions__grid,
   .events__grid,
   .news__grid{grid-template-columns:1fr}
-  .gallery__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
   .partners__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .stats__grid{grid-template-columns:1fr}
-  .footer__top{grid-template-columns:1fr 1fr;gap:32px}
-  .form{padding:22px}
-  .footer__bottom{flex-direction:column}
+  .stats__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{padding:22px 18px}
+  .stat__value{font-size:1.9rem}
+  .stat__label{font-size:.76rem}
+  .gallery__item figcaption{font-size:.8rem;padding:12px 14px}
+  .event__meta{flex-wrap:wrap}
+  .footer__top{grid-template-columns:1fr 1fr;gap:28px}
+  .footer__col a{padding:10px 0;min-height:44px;display:flex;align-items:center}
+  .footer__col span{padding:2px 0}
+  .footer__social a{width:40px;height:40px}
+  .form{padding:20px}
+  .form__row input,
+  .form__row select,
+  .form__row textarea{font-size:16px}
+  .footer__bottom{flex-direction:column;gap:8px}
   .footer__credits{text-align:left}
 }
 
 @media (max-width:560px){
-  .brand__name{font-size:1.32rem}
-  .brand__sub{font-size:.5rem;letter-spacing:.12em}
+  .container{padding:0 16px}
+  .nav__inner{padding:0 16px}
+  .section{padding:44px 0}
+  .brand__name{font-size:1.25rem}
+  .brand__sub{font-size:.48rem;letter-spacing:.1em}
   .brand__mark{width:34px;height:34px}
-  .nav__links{padding:96px 20px 32px}
-  .hero__kicker{font-size:.6rem;letter-spacing:.14em}
+  .nav__links{padding:calc(92px + env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom))}
+  .nav__links a{font-size:1.4rem;padding:14px 0}
+  .hero__kicker{font-size:.68rem;letter-spacing:.12em;gap:9px}
+  .hero__kicker-line{width:24px}
   .hero__actions{flex-direction:column;align-items:stretch}
   .hero__actions .btn{width:100%}
-  .keyfigure__label{font-size:.68rem}
-  .gallery__grid{grid-template-columns:1fr}
-  .partners__grid{grid-template-columns:1fr}
-  .mission{padding:24px}
-  .mission__num{top:24px;right:24px}
-  .stat{padding:24px}
+  .keyfigure__value{font-size:1.7rem}
+  .keyfigure__label{font-size:.74rem}
+  .stat{padding:18px}
+  .stat__value{font-size:1.65rem}
+  .stat__label{font-size:.72rem}
+  .gallery__grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .gallery__item figcaption{font-size:.72rem;padding:10px 12px}
+  .partners__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .partner{min-height:78px;padding:12px 10px;font-size:.8rem}
+  .mission{padding:22px}
+  .mission__num{top:22px;right:22px}
   .finance__card{position:static;max-width:none;margin-top:0}
   .finance__media{display:flex;flex-direction:column}
+  .chain-item__text{padding:0 0 12px 0;font-size:.86rem}
+  .chain-item__tags{padding:0 0 18px 0}
+  .chain-item__head{gap:12px}
+  .president__quote p{font-size:1.35rem}
+  .manifesto__title{font-size:clamp(1.7rem,8vw,2.4rem)}
+  .news-card__body,
+  .event__body{padding:18px}
   .footer__top{grid-template-columns:1fr}
   .form__title{font-size:1.15rem}
 }

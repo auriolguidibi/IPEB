@@ -78,9 +78,16 @@
   }
 
   if (heroVideo) {
-    if (reduceMotion) {
+    var smallScreen = window.matchMedia("(max-width: 760px)").matches;
+    if (reduceMotion || smallScreen) {
       heroVideo.pause();
       heroVideo.removeAttribute("autoplay");
+      var sources = heroVideo.querySelectorAll("source");
+      for (var i = 0; i < sources.length; i++) {
+        sources[i].parentNode.removeChild(sources[i]);
+      }
+      heroVideo.removeAttribute("src");
+      heroVideo.load();
     } else {
       heroVideo.addEventListener("loadeddata", function () {
         heroVideo.classList.add("is-ready");
