@@ -222,7 +222,7 @@
 
       if (!form.checkValidity()) {
         if (status) {
-          status.textContent = "Merci de renseigner votre nom et une adresse e-mail valide.";
+          status.textContent = "Merci de renseigner votre nom, un e-mail valide et l'objet de votre demande.";
           status.classList.add("is-error");
         }
         form.reportValidity();
@@ -233,21 +233,25 @@
       var name = (data.get("name") || "").toString().trim();
       var structure = (data.get("structure") || "").toString().trim();
       var email = (data.get("email") || "").toString().trim();
+      var phone = (data.get("phone") || "").toString().trim();
+      var sujet = (data.get("sujet") || "").toString().trim();
       var profil = (data.get("profil") || "").toString();
       var message = (data.get("message") || "").toString().trim();
 
       var body = [
+        "Objet : " + (sujet || "—"),
         "Nom : " + name,
         "Structure : " + (structure || "—"),
         "E-mail : " + email,
-        "Profil : " + profil,
+        "Téléphone : " + (phone || "—"),
+        "Profil : " + (profil || "—"),
         "",
         "Message :",
         message || "—"
       ].join("\n");
 
       var href = "mailto:contact@ipeb.bj?subject=" +
-        encodeURIComponent("Demande d'adhésion IPEB — " + name) +
+        encodeURIComponent((sujet || "Demande") + " — IPEB — " + name) +
         "&body=" + encodeURIComponent(body);
 
       if (status) {
