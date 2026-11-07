@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Dossier de partenariat — JoNaPEB 2026 | IPEB</title>
+<style>
+  @font-face{font-family:"Montserrat";font-style:normal;font-weight:400;src:url("assets/fonts/Montserrat-Regular.ttf") format("truetype")}
+  @font-face{font-family:"Montserrat";font-style:normal;font-weight:500;src:url("assets/fonts/Montserrat-Medium.ttf") format("truetype")}
+  @font-face{font-family:"Montserrat";font-style:normal;font-weight:600;src:url("assets/fonts/Montserrat-SemiBold.ttf") format("truetype")}
+  @font-face{font-family:"Montserrat";font-style:normal;font-weight:700;src:url("assets/fonts/Montserrat-Bold.ttf") format("truetype")}
+  @font-face{font-family:"Montserrat";font-style:normal;font-weight:800;src:url("assets/fonts/Montserrat-ExtraBold.ttf") format("truetype")}
+  @page{size:A4;margin:0}
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{margin:0;padding:0;background:#fff}
+  body{font-family:"Montserrat","Segoe UI",system-ui,-apple-system,sans-serif;color:#211d19;font-size:9pt;line-height:1.55;-webkit-font-smoothing:antialiased}
+  em{font-style:normal}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  .page{position:relative;width:210mm;height:297mm;overflow:hidden;background:#fff;page-break-after:always;break-after:page}
+  .page:last-child{page-break-after:auto;break-after:auto}
+  .page__inner{position:relative;height:100%;padding:15mm 16mm 23mm;display:flex;flex-direction:column}
+
+  .page__header{display:flex;align-items:center;justify-content:space-between;gap:10mm;padding-bottom:3.5mm;border-bottom:1px solid #e9e2d8;margin-bottom:7mm}
+  .page__brand{display:flex;align-items:center;gap:3mm}
+  .page__brand img{width:9mm;height:9mm;border-radius:50%;background:#fff;padding:.4mm;box-shadow:0 0 0 .3mm #e9e2d8}
+  .page__brand b{display:block;font-size:8pt;font-weight:700;letter-spacing:.02em;color:#0b2e63;line-height:1.1}
+  .page__brand span{display:block;margin-top:.6mm;font-size:5pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6f685f}
+  .page__run{font-size:5.8pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#6f685f;text-align:right}
+  .page__footer{position:absolute;left:16mm;right:16mm;bottom:8mm;display:flex;align-items:center;justify-content:space-between;gap:8mm;padding-top:3mm;border-top:1px solid #e9e2d8;font-size:5.5pt;color:#6f685f}
+  .page__footer b{color:#0b2e63;font-weight:700}
+  .page__num{font-weight:700;color:#0b2e63}
+
+  .label{display:flex;align-items:center;gap:3mm;margin:0 0 3mm;font-size:6.4pt;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#0b2e63}
+  .label::before{content:"";width:7mm;height:.6mm;background:#ffd21f;flex-shrink:0}
+  .label--light{color:rgba(255,255,255,.72)}
+  .title{margin:0;font-size:22pt;font-weight:600;line-height:1.08;letter-spacing:-.03em;color:#211d19}
+  .title em{color:#3f5a9e}
+  .title--light{color:#fff}
+  .title--light em{color:#ffe07a}
+  .intro{max-width:135mm;margin:4mm 0 0;font-size:8.4pt;line-height:1.65;color:#6f685f}
+  .intro--light{color:rgba(255,255,255,.66)}
+
+  /* ---------- Cover ---------- */
+  .cover{background:#0a1730;color:#fff}
+  .cover__bg{position:absolute;inset:0;background:url("assets/img/jonapeb-2026.jpg") center/cover no-repeat;opacity:.55}
+  .cover__overlay{position:absolute;inset:0;background:
+    linear-gradient(90deg,rgba(10,23,48,.96) 0%,rgba(10,23,48,.8) 52%,rgba(10,23,48,.32) 100%),
+    linear-gradient(0deg,rgba(10,23,48,.92) 0%,rgba(10,23,48,0) 42%)}
+  .cover__inner{position:relative;z-index:2;height:100%;padding:15mm 16mm;display:flex;flex-direction:column}
+  .cover__top{display:flex;align-items:center;justify-content:space-between;gap:10mm}
+  .cover__brand{display:flex;align-items:center;gap:3mm}
+  .cover__brand img{width:11mm;height:11mm;border-radius:50%;background:#fff;padding:.5mm}
+  .cover__brand b{display:block;font-size:10pt;font-weight:700;line-height:1.1}
+  .cover__brand span{display:block;margin-top:.6mm;font-size:5.2pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .cover__doc{font-size:5.8pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#ffd21f;text-align:right;line-height:1.5}
+  .cover__body{margin-top:auto;margin-bottom:auto;max-width:152mm}
+  .cover__kicker{display:flex;align-items:center;gap:3mm;margin:0 0 5mm;font-size:6.2pt;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+  .cover__kicker::before{content:"";width:8mm;height:.6mm;background:#ffe07a;flex-shrink:0}
+  .cover h1{margin:0;font-size:38pt;font-weight:600;line-height:1.02;letter-spacing:-.04em}
+  .cover h1 em{color:#ffe07a}
+  .cover__lead{max-width:128mm;margin:6mm 0 0;font-size:10.2pt;line-height:1.6;color:rgba(255,255,255,.8)}
+  .cover__stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:10mm;border-top:1px solid rgba(255,255,255,.2);border-bottom:1px solid rgba(255,255,255,.2)}
+  .cover__stat{padding:5mm 0}
+  .cover__stat + .cover__stat{border-left:1px solid rgba(255,255,255,.2);padding-left:6mm}
+  .cover__stat b{display:block;font-size:17pt;font-weight:600;line-height:1;color:#ffe07a}
+  .cover__stat span{display:block;margin-top:2mm;font-size:5.6pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .cover__place{display:inline-flex;align-items:center;gap:2.5mm;margin-top:7mm;padding:2.6mm 4mm;background:#ffd21f;color:#0a1730;font-size:6.4pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  .cover__foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:10mm;font-size:5.6pt;line-height:1.5;color:rgba(255,255,255,.55)}
+
+  /* ---------- Page 2 : sommaire + vision ---------- */
+  .split{display:grid;grid-template-columns:.82fr 1.18fr;gap:10mm;align-items:start;margin-top:2mm}
+  .toc{background:#fbf8f3;border:1px solid #e9e2d8;padding:6mm}
+  .toc h3{margin:0 0 4mm;font-size:6.6pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0b2e63}
+  .toc ol{list-style:none;margin:0;padding:0}
+  .toc li{display:flex;align-items:baseline;gap:3mm;padding:2.3mm 0;border-bottom:1px solid #e9e2d8;font-size:7.8pt;line-height:1.35;color:#453d35}
+  .toc li:last-child{border-bottom:0}
+  .toc li span{min-width:6mm;font-size:6.4pt;font-weight:700;color:#0b2e63}
+  .toc li b{margin-left:auto;font-size:6.4pt;font-weight:700;color:#6f685f}
+  .mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin-top:5mm}
+  .mini-stat{padding:3mm;background:#fff;border:1px solid #e9e2d8}
+  .mini-stat b{display:block;font-size:12pt;font-weight:600;line-height:1;color:#0b2e63}
+  .mini-stat span{display:block;margin-top:1.5mm;font-size:5.2pt;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6f685f}
+  .quote{margin:0;padding:6mm;background:#0b2e63;color:#fff;border-left:1.2mm solid #ffd21f}
+  .quote p{margin:0;font-size:10.2pt;font-weight:600;line-height:1.5}
+  .quote footer{margin-top:4mm;font-size:5.4pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ffd21f}
+  .objectives{list-style:none;margin:6mm 0 0;padding:0}
+  .objectives li{display:grid;grid-template-columns:9mm 1fr;gap:3mm;padding:2.6mm 0;border-bottom:1px solid #e9e2d8}
+  .objectives li:last-child{border-bottom:0}
+  .objectives b{font-size:11pt;font-weight:600;line-height:1;color:#3f5a9e}
+  .objectives p{margin:0;font-size:7.7pt;line-height:1.5;color:#453d35}
+
+  /* ---------- Page 3 : programme ---------- */
+  .program{display:grid;grid-template-columns:1fr 1fr;gap:6mm;margin-top:2mm}
+  .day{border:1px solid #e9e2d8;background:#fff}
+  .day__head{padding:4.5mm 5mm;background:#0b2e63;color:#fff}
+  .day--2 .day__head{background:#01278a}
+  .day__num{font-size:5.4pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ffd21f}
+  .day__head h3{margin:1.5mm 0 1mm;font-size:10pt;font-weight:600;line-height:1.2}
+  .day__theme{margin:0;font-size:6.4pt;line-height:1.4;color:rgba(255,255,255,.7)}
+  .timeline{list-style:none;margin:0;padding:2mm 0}
+  .slot{display:grid;grid-template-columns:13mm 1fr;gap:3mm;padding:1.65mm 5mm}
+  .slot + .slot{border-top:1px solid #f1ede6}
+  .slot time{font-size:6.4pt;font-weight:700;color:#0b2e63}
+  .slot p{margin:0;font-size:6.7pt;line-height:1.45;color:#453d35}
+  .slot--key{background:rgba(255,210,31,.16)}
+  .slot--key p{font-weight:600;color:#211d19}
+
+  /* ---------- Page 4 : événement ---------- */
+  .spec{display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid #e9e2d8}
+  .spec__row{display:grid;grid-template-columns:29mm 1fr;gap:3mm;padding:3mm 4mm;border-bottom:1px solid #e9e2d8}
+  .spec__row:nth-child(odd){border-right:1px solid #e9e2d8}
+  .spec__row:nth-last-child(-n+2){border-bottom:0}
+  .spec dt{padding-top:.5mm;font-size:5.4pt;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0b2e63}
+  .spec dd{margin:0;font-size:7.1pt;line-height:1.45;color:#453d35}
+  .subhead{margin:8mm 0 3.5mm;font-size:11pt;font-weight:600;letter-spacing:-.01em;color:#211d19}
+  .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm}
+  .card{padding:3.5mm 3mm;background:#fff;border:1px solid #e9e2d8;border-top:.8mm solid #ffd21f}
+  .card__num{display:inline-flex;align-items:center;justify-content:center;width:6mm;height:6mm;margin-bottom:2.5mm;border-radius:50%;background:rgba(1,39,138,.08);color:#0b2e63;font-size:5.4pt;font-weight:700}
+  .card h4{margin:0 0 1.5mm;font-size:6pt;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0b2e63}
+  .card p{margin:0;font-size:6.2pt;line-height:1.45;color:#6f685f}
+  .gov{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5mm}
+  .gov__item{padding:3.5mm;background:#fbf8f3;border:1px solid #e9e2d8}
+  .gov__num{display:inline-flex;align-items:center;justify-content:center;width:6.5mm;height:6.5mm;margin-bottom:2.5mm;border-radius:50%;background:#0b2e63;color:#ffd21f;font-size:5.4pt;font-weight:700}
+  .gov__item h4{margin:0 0 1.5mm;font-size:6.9pt;font-weight:600;color:#211d19}
+  .gov__item p{margin:0;font-size:6.2pt;line-height:1.45;color:#6f685f}
+
+  /* ---------- Page 5 : dark ---------- */
+  .dark{background:#0a1730;color:#fff}
+  .dark .page__header{border-bottom-color:rgba(255,255,255,.14)}
+  .dark .page__brand b{color:#fff}
+  .dark .page__brand span,.dark .page__run{color:rgba(255,255,255,.55)}
+  .dark .page__footer{border-top-color:rgba(255,255,255,.14);color:rgba(255,255,255,.5)}
+  .dark .page__footer b{color:#ffe07a}
+  .dark .page__num{color:#ffe07a}
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:2mm}
+  .pillar{position:relative;padding:5mm;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-left:1mm solid #ffd21f}
+  .pillar__num{position:absolute;top:3mm;right:4mm;font-size:16pt;font-weight:600;line-height:1;color:rgba(255,255,255,.08)}
+  .pillar h4{margin:0 0 2mm;font-size:9pt;font-weight:600;color:#ffe07a}
+  .pillar p{margin:0;font-size:7.4pt;line-height:1.55;color:rgba(255,255,255,.74)}
+  .contrib{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm}
+  .contrib__item{padding:3mm;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);text-align:center}
+  .contrib__item span{display:block;font-size:6.1pt;font-weight:600;line-height:1.4;color:rgba(255,255,255,.82)}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:2.5mm}
+  .step{padding:3.5mm 2.5mm;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16)}
+  .step b{display:inline-flex;align-items:center;justify-content:center;width:6.5mm;height:6.5mm;margin-bottom:2.5mm;border-radius:50%;background:#ffd21f;color:#0a1730;font-size:5.4pt;font-weight:700}
+  .step h4{margin:0 0 1.5mm;font-size:6.7pt;font-weight:600;color:#fff}
+  .step p{margin:0;font-size:6.1pt;line-height:1.4;color:rgba(255,255,255,.6)}
+  .note{margin:4mm 0 0;font-size:6.4pt;font-style:italic;color:rgba(255,255,255,.5)}
+
+  /* ---------- Page 6 : budget ---------- */
+  .budget-top{display:flex;align-items:flex-end;justify-content:space-between;gap:8mm;margin-bottom:6mm}
+  .budget-total b{display:block;font-size:28pt;font-weight:600;line-height:1;letter-spacing:-.03em;color:#0b2e63}
+  .budget-total span{display:block;margin-top:2mm;font-size:7pt;color:#6f685f}
+  .budget{display:grid;grid-template-columns:.85fr 1.15fr;gap:10mm;align-items:center}
+  .donut-wrap{display:flex;flex-direction:column;align-items:center;gap:4mm}
+  .donut{position:relative;width:62mm;height:62mm;border-radius:50%;background:conic-gradient(#0b2e63 0 52.9%,#3f5a9e 52.9% 90.9%,#ffd21f 90.9% 100%)}
+  .donut::before{content:"";position:absolute;inset:22%;border-radius:50%;background:#fff}
+  .donut__center{position:absolute;inset:22%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .donut__center b{font-size:13pt;font-weight:700;line-height:1;color:#0a1730}
+  .donut__center span{margin-top:1mm;font-size:5.4pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6f685f}
+  .donut__caption{max-width:56mm;margin:0;font-size:6.4pt;line-height:1.5;text-align:center;color:#6f685f}
+  .finance{padding:2mm 6mm;background:#fff;border:1px solid #e9e2d8}
+  .finance__row{display:flex;align-items:center;justify-content:space-between;gap:5mm;padding:4mm 0;border-bottom:1px solid #e9e2d8}
+  .finance__row:last-child{border-bottom:0}
+  .finance__label{display:flex;align-items:center;gap:2.5mm;font-size:7.7pt;font-weight:500;color:#453d35}
+  .finance__label em{font-size:6.4pt;font-weight:600;color:#6f685f}
+  .dot{width:2.5mm;height:2.5mm;border-radius:.5mm;flex-shrink:0}
+  .dot--1{background:#0b2e63}.dot--2{background:#3f5a9e}.dot--3{background:#ffd21f}
+  .finance__row b{font-size:9pt;font-weight:700;color:#0b2e63;white-space:nowrap}
+  .finance__row--total{border-top:.6mm solid #211d19}
+  .finance__row--total .finance__label,.finance__row--total b{color:#211d19}
+  .budget-note{margin-top:6mm;padding:4mm 5mm;background:#fbf8f3;border-left:1mm solid #ffd21f;font-size:7pt;line-height:1.6;color:#453d35}
+
+  /* ---------- Page 7 : partenariat + contact ---------- */
+  .tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5mm;margin-top:2mm}
+  .tier{display:flex;flex-direction:column;padding:4.5mm 4mm;background:#fff;border:1px solid #e9e2d8;border-top:.8mm solid #e9e2d8}
+  .tier--platine{border-color:#0b2e63;border-top-color:#0b2e63}
+  .tier__name{font-size:5.4pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6f685f}
+  .tier--platine .tier__name{color:#0b2e63}
+  .tier__price{margin:2mm 0 0;font-size:12pt;font-weight:700;line-height:1;color:#0b2e63}
+  .tier__price small{display:block;margin-top:1mm;font-size:5.4pt;font-weight:700;letter-spacing:.1em;color:#6f685f}
+  .tier ul{list-style:none;margin:3mm 0 0;padding:0}
+  .tier li{position:relative;margin-bottom:1.4mm;padding-left:3.5mm;font-size:6.2pt;line-height:1.4;color:#453d35}
+  .tier li::before{content:"";position:absolute;left:0;top:.55em;width:1.3mm;height:1.3mm;border-radius:50%;background:#ffd21f}
+  .partner-note{margin-top:6mm;padding:4mm 5mm;background:#fbf8f3;border-left:1mm solid #ffd21f;font-size:7pt;line-height:1.6;color:#453d35}
+  .contact{margin-top:auto;padding:7mm;background:#0a1730;color:#fff;display:grid;grid-template-columns:1.3fr .7fr;gap:8mm;align-items:center}
+  .contact h3{margin:0;font-size:14pt;font-weight:600;line-height:1.15}
+  .contact h3 em{color:#ffe07a}
+  .contact p{margin:3mm 0 0;font-size:7.4pt;line-height:1.6;color:rgba(255,255,255,.72)}
+  .contact__card{padding:4mm;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);font-size:6.9pt;line-height:1.8;color:rgba(255,255,255,.8)}
+  .contact__card b{display:block;margin-bottom:1.5mm;font-size:8pt;color:#fff}
+  .contact__card a{color:#ffe07a}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 — COUVERTURE ============ -->
+<section class="page cover">
+  <div class="cover__bg"></div>
+  <div class="cover__overlay"></div>
+  <div class="cover__inner">
+    <header class="cover__top">
+      <div class="cover__brand">
+        <img src="assets/img/logo-ipeb.png" alt="" />
+        <span>
+          <b>IPEB</b>
+          <span>Poisson d'Élevage du Bénin</span>
+        </span>
+      </div>
+      <span class="cover__doc">Dossier de partenariat<br />5<sup>e</sup> édition · 2026</span>
+    </header>
+
+    <div class="cover__body">
+      <p class="cover__kicker">Journées nationales du poisson d'élevage du Bénin</p>
+      <h1>Pisciculture béninoise<br />à l'horizon <em>2030.</em></h1>
+      <p class="cover__lead">Politiques publiques, financement inclusif et transformation digitale pour une filière compétitive et durable.</p>
+
+      <div class="cover__stats">
+        <div class="cover__stat"><b>26 &amp; 27</b><span>novembre 2026</span></div>
+        <div class="cover__stat"><b>43,46 M</b><span>FCFA de budget</span></div>
+        <div class="cover__stat"><b>300–350</b><span>délégués attendus</span></div>
+      </div>
+
+      <span class="cover__place">Palais des Congrès de Cotonou</span>
+    </div>
+
+    <footer class="cover__foot">
+      <span>Sous le patronage du ministre de l'Agriculture,<br />de l'Élevage et de la Pêche</span>
+      <span>www.ipeb.bj</span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 — SOMMAIRE + VISION ============ -->
+<section class="page">
+  <div class="page__inner">
+    <header class="page__header">
+      <div class="page__brand">
+        <img src="assets/img/logo-ipeb.png" alt="" />
+        <span><b>IPEB</b><span>JoNaPEB 2026</span></span>
+      </div>
+      <span class="page__run">Dossier de partenariat</span>
+    </header>
+
+    <p class="label">01 — Pourquoi cette édition</p>
+    <h2 class="title">Du diagnostic<br /><em>à l'action.</em></h2>
+    <p class="intro">Les JoNaPEB constituent un cadre national de dialogue, de valorisation et de mise en relation des acteurs de la pisciculture béninoise.</p>
+
+    <div class="split">
+      <aside class="toc">
+        <h3>Sommaire</h3>
+        <ol>
+          <li><span>01</span>Pourquoi cette édition<b>02</b></li>
+          <li><span>02</span>Programme synthétique<b>03</b></li>
+          <li><span>03</span>L'événement<b>04</b></li>
+          <li><span>04</span>Financement &amp; aquaculture 4.0<b>05</b></li>
+          <li><span>05</span>Budget prévisionnel<b>06</b></li>
+          <li><span>06</span>Devenir partenaire<b>07</b></li>
+        </ol>
+        <div class="mini-stats">
+          <div class="mini-stat"><b>20</b><span>stands</span></div>
+          <div class="mini-stat"><b>12</b><span>départements</span></div>
+          <div class="mini-stat"><b>250</b><span>couverts</span></div>
+          <div class="mini-stat"><b>2</b><span>journées</span></div>
+        </div>
+      </aside>
+
+      <div>
+        <blockquote class="quote">
+          <p>La cinquième édition doit marquer le passage du diagnostic à l'action, avec l'examen et l'adoption d'un mécanisme de financement inclusif et solidaire, et une feuille de route à l'horizon 2030.</p>
+          <footer>Vision de l'édition 2026</footer>
+        </blockquote>
+
+        <ol class="objectives">
+          <li><b>01</b><p>Établir un état des lieux partagé de la production, des intrants, des marchés et des contraintes.</p></li>
+          <li><b>02</b><p>Apprécier les résultats des programmes publics et des appuis des partenaires.</p></li>
+          <li><b>03</b><p>Examiner, amender et soumettre à adoption le mécanisme de financement élaboré avec l'appui du cabinet Sud Capital.</p></li>
+          <li><b>04</b><p>Obtenir des intentions de soutien et définir les prochaines étapes de déploiement.</p></li>
+          <li><b>05</b><p>Faire de la donnée, de la traçabilité et de l'accès au marché des leviers de bancabilité.</p></li>
+        </ol>
+      </div>
+    </div>
+
+    <footer class="page__footer">
+      <span><b>www.ipeb.bj</b> · contact@ipeb.bj · +229 01 97 98 86 88</span>
+      <span>Cotonou · 26–27 novembre 2026 — <span class="page__num">02</span></span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 — PROGRAMME ============ -->
+<section class="page">
+  <div class="page__inner">
+    <header class="page__header">
+      <div class="page__brand">
+        <img src="assets/img/logo-ipeb.png" alt="" />
+        <span><b>IPEB</b><span>JoNaPEB 2026</span></span>
+      </div>
+      <span class="page__run">02 · Programme synthétique</span>
+    </header>
+
+    <p class="label">02 — Programme synthétique</p>
+    <h2 class="title">Deux journées,<br /><em>du diagnostic à la décision.</em></h2>
+    <p class="intro">Un parcours de travail pensé pour aboutir à des engagements concrets : diagnostic partagé, ateliers, adoption du mécanisme de financement et signature de partenariats.</p>
+
+    <div class="program">
+      <article class="day">
+        <div class="day__head">
+          <span class="day__num">Jour 01 · Jeudi 26 novembre</span>
+          <h3>Diagnostic &amp; concertation</h3>
+          <p class="day__theme">Poser un état des lieux partagé et ouvrir le dialogue.</p>
+        </div>
+        <ul class="timeline">
+          <li class="slot"><time>08h30</time><p>Accueil, enregistrement et ouverture de la mini-foire</p></li>
+          <li class="slot slot--key"><time>09h00</time><p>Cérémonie d'ouverture</p></li>
+          <li class="slot"><time>09h35</time><p>Photo officielle et visite des stands</p></li>
+          <li class="slot slot--key"><time>10h00</time><p>Table ronde : mécanisme de financement inclusif</p></li>
+          <li class="slot"><time>12h00</time><p>Conférence inaugurale : état des lieux</p></li>
+          <li class="slot"><time>12h45</time><p>Déjeuner</p></li>
+          <li class="slot"><time>14h00</time><p>Panel 1 : situation de la pisciculture béninoise</p></li>
+          <li class="slot"><time>15h15</time><p>Panel 2 : bilan des projets et programmes</p></li>
+          <li class="slot"><time>16h45</time><p>Quatre ateliers thématiques en parallèle</p></li>
+          <li class="slot"><time>18h15</time><p>Cocktail et réseautage</p></li>
+        </ul>
+      </article>
+
+      <article class="day day--2">
+        <div class="day__head">
+          <span class="day__num">Jour 02 · Vendredi 27 novembre</span>
+          <h3>Décisions &amp; partenariats</h3>
+          <p class="day__theme">Adopter le mécanisme et sceller les engagements.</p>
+        </div>
+        <ul class="timeline">
+          <li class="slot"><time>09h00</time><p>Restitution des ateliers</p></li>
+          <li class="slot"><time>09h45</time><p>Panel 3 : perspectives 2030</p></li>
+          <li class="slot slot--key"><time>11h00</time><p>Adoption du mécanisme</p></li>
+          <li class="slot"><time>11h30</time><p>Table des partenaires et démonstrations</p></li>
+          <li class="slot"><time>13h00</time><p>Déjeuner</p></li>
+          <li class="slot"><time>14h30</time><p>Rencontres B2B et conférences</p></li>
+          <li class="slot slot--key"><time>16h00</time><p>Déclaration de Cotonou et feuille de route</p></li>
+          <li class="slot"><time>16h45</time><p>Clôture et lettres d'intention</p></li>
+          <li class="slot slot--key"><time>19h00</time><p>Séance gastronomique de valorisation des produits piscicoles et remise des trophées (jusqu'à 22h00)</p></li>
+        </ul>
+      </article>
+    </div>
+
+    <footer class="page__footer">
+      <span><b>www.ipeb.bj</b> · contact@ipeb.bj · +229 01 97 98 86 88</span>
+      <span>Cotonou · 26–27 novembre 2026 — <span class="page__num">03</span></span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ PAGE 4 — ÉVÉNEMENT ============ -->
+<section class="page">
+  <div class="page__inner">
+    <header class="page__header">
+      <div class="page__brand">
+        <img src="assets/img/logo-ipeb.png" alt="" />
+        <span><b>IPEB</b><span>JoNaPEB 2026</span></span>
+      </div>
+      <span class="page__run">03 · L'événement</span>
+    </header>
+
+    <p class="label">03 — L'événement en un coup d'œil</p>
+    <h2 class="title">Fiche signalétique<br /><em>&amp; résultats attendus.</em></h2>
+
+    <dl class="spec" style="margin-top:5mm">
+      <div class="spec__row"><dt>Organisateur</dt><dd>Interprofession Poisson d'Élevage du Bénin (IPEB)</dd></div>
+      <div class="spec__row"><dt>Dates</dt><dd>Jeudi 26 et vendredi 27 novembre 2026</dd></div>
+      <div class="spec__row"><dt>Lieu</dt><dd>Palais des Congrès de Cotonou</dd></div>
+      <div class="spec__row"><dt>Format</dt><dd>Plénières, panels, quatre ateliers, mini-foire, B2B et séance gastronomique</dd></div>
+      <div class="spec__row"><dt>Public cible</dt><dd>300 à 350 délégués ; 12 départements représentés</dd></div>
+      <div class="spec__row"><dt>Exposition</dt><dd>20 stands envisagés</dd></div>
+      <div class="spec__row"><dt>Séance gastronomique</dt><dd>Valorisation des produits piscicoles ; 250 couverts prévus</dd></div>
+      <div class="spec__row"><dt>Contact</dt><dd>+229 01 97 98 86 88 · contact@ipeb.bj</dd></div>
+    </dl>
+
+    <h3 class="subhead">Livrables concrets</h3>
+    <div class="cards">
+      <article class="card"><span class="card__num">01</span><h4>Diagnostic</h4><p>Rapport d'état des lieux et synthèse des interventions publiques.</p></article>
+      <article class="card"><span class="card__num">02</span><h4>Engagements</h4><p>Résolution d'adoption du mécanisme et lettres d'intention des partenaires.</p></article>
+      <article class="card"><span class="card__num">03</span><h4>Numérique</h4><p>Note de cadrage du pilote numérique et gouvernance des données.</p></article>
+      <article class="card"><span class="card__num">04</span><h4>Cap 2030</h4><p>Déclaration de Cotonou et feuille de route 2030.</p></article>
+      <article class="card"><span class="card__num">05</span><h4>Restitution</h4><p>Rapport narratif et financier, film de synthèse et palmarès des trophées.</p></article>
+    </div>
+
+    <h3 class="subhead">Gouvernance</h3>
+    <p class="intro" style="margin:0 0 3.5mm;max-width:150mm">Le comité d'organisation de l'IPEB coordonne les travaux, en s'appuyant sur quatre organes complémentaires.</p>
+    <div class="gov">
+      <div class="gov__item"><span class="gov__num">01</span><h4>Comité scientifique</h4><p>Contenus, panels et ateliers.</p></div>
+      <div class="gov__item"><span class="gov__num">02</span><h4>Cellule financement</h4><p>Mécanisme et partenaires financiers.</p></div>
+      <div class="gov__item"><span class="gov__num">03</span><h4>Commissions</h4><p>Logistique, communication, mobilisation des ressources.</p></div>
+      <div class="gov__item"><span class="gov__num">04</span><h4>Jury indépendant</h4><p>Distinctions et trophées.</p></div>
+    </div>
+
+    <footer class="page__footer">
+      <span><b>www.ipeb.bj</b> · contact@ipeb.bj · +229 01 97 98 86 88</span>
+      <span>Cotonou · 26–27 novembre 2026 — <span class="page__num">04</span></span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ PAGE 5 — CŒUR DES TRAVAUX ============ -->
+<section class="page dark">
+  <div class="page__inner">
+    <header class="page__header">
+      <div class="page__brand">
+        <img src="assets/img/logo-ipeb.png" alt="" />
+        <span><b>IPEB</b><span>JoNaPEB 2026</span></span>
+      </div>
+      <span class="page__run">04 · Le cœur des travaux</span>
+    </header>
+
+    <p class="label label--light">04 — Le cœur des travaux</p>
+    <h2 class="title title--light">Financement inclusif<br /><em>&amp; aquaculture 4.0.</em></h2>
+    <p class="intro intro--light">Le mécanisme proposé vise à améliorer l'accès des petites et moyennes exploitations au financement en associant institutions financières, acteurs de la filière et partenaires techniques autour d'un partage du risque.</p>
+
+    <div class="pillars">
+      <article class="pillar"><span class="pillar__num">01</span><h4>Inclusif</h4><p>Accès pour exploitations familiales, coopératives, femmes et jeunes.</p></article>
+      <article class="pillar"><span class="pillar__num">02</span><h4>Solidaire</h4><p>Mutualisation des risques et contribution des acteurs de la filière.</p></article>
+      <article class="pillar"><span class="pillar__num">03</span><h4>Intégré</h4><p>Financement des intrants, de la production et de la mise en marché.</p></article>
+      <article class="pillar"><span class="pillar__num">04</span><h4>Adossé au secteur financier</h4><p>Crédits octroyés par les banques et SFD partenaires.</p></article>
+    </div>
+
+    <h3 class="subhead" style="color:#fff;margin-top:7mm">Modalités de contribution possibles</h3>
+    <div class="contrib">
+      <div class="contrib__item"><span>Dotation d'un fonds de garantie</span></div>
+      <div class="contrib__item"><span>Ressources de crédit adaptées</span></div>
+      <div class="contrib__item"><span>Accompagnement technique</span></div>
+      <div class="contrib__item"><span>Suivi numérique</span></div>
+      <div class="contrib__item"><span>Articulation avec les projets sectoriels</span></div>
+    </div>
+
+    <h3 class="subhead" style="color:#fff;margin-top:7mm">Transformation digitale</h3>
+    <p class="intro intro--light" style="margin:0 0 3.5mm;max-width:150mm">Le programme prévoit un parcours numérique complet, de l'exploitation jusqu'au financeur :</p>
+    <div class="steps">
+      <div class="step"><b>1</b><h4>Registre volontaire</h4><p>Recensement des exploitations.</p></div>
+      <div class="step"><b>2</b><h4>Carnet de ferme</h4><p>Suivi mobile de l'activité.</p></div>
+      <div class="step"><b>3</b><h4>Traçabilité</h4><p>Suivi par lots.</p></div>
+      <div class="step"><b>4</b><h4>Indicateurs</h4><p>Données de production.</p></div>
+      <div class="step"><b>5</b><h4>Mise en relation</h4><p>Producteurs, fournisseurs, acheteurs, financeurs.</p></div>
+    </div>
+
+    <p class="note">Les paramètres détaillés de la phase pilote restent à préciser dans la note technique du mécanisme.</p>
+
+    <footer class="page__footer">
+      <span><b>www.ipeb.bj</b> · contact@ipeb.bj · +229 01 97 98 86 88</span>
+      <span>Cotonou · 26–27 novembre 2026 — <span class="page__num">05</span></span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ PAGE 6 — BUDGET ============ -->
+<section class="page">
+  <div class="page__inner">
+    <header class="page__header">
+      <div class="page__brand">
+        <img src="assets/img/logo-ipeb.png" alt="" />
+        <span><b>IPEB</b><span>JoNaPEB 2026</span></span>
+      </div>
+      <span class="page__run">05 · Budget prévisionnel</span>
+    </header>
+
+    <p class="label">05 — Les besoins de l'événement</p>
+    <h2 class="title">Budget prévisionnel<br /><em>consolidé.</em></h2>
+
+    <div class="budget-top" style="margin-top:6mm">
+      <div class="budget-total">
+        <b>43 460 000 FCFA</b>
+        <span>Répartis en huit rubriques, dont 5 % d'imprévus.</span>
+      </div>
+    </div>
+
+    <div class="budget">
+      <div class="donut-wrap">
+        <div class="donut"><div class="donut__center"><b>43,46 M</b><span>FCFA</span></div></div>
+        <p class="donut__caption">Répartition du plan de financement prévisionnel.</p>
+      </div>
+
+      <div class="finance">
+        <div class="finance__row">
+          <span class="finance__label"><i class="dot dot--1"></i>Appui institutionnel / PTF <em>· 52,9 %</em></span>
+          <b>23 000 000 FCFA</b>
+        </div>
+        <div class="finance__row">
+          <span class="finance__label"><i class="dot dot--2"></i>Partenariats privés <em>· 38,0 %</em></span>
+          <b>16 500 000 FCFA</b>
+        </div>
+        <div class="finance__row">
+          <span class="finance__label"><i class="dot dot--3"></i>Recettes propres <em>· 9,1 %</em></span>
+          <b>3 960 000 FCFA</b>
+        </div>
+        <div class="finance__row finance__row--total">
+          <span class="finance__label">Total</span>
+          <b>43 460 000 FCFA</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="budget-note">
+      <b>Un budget au service des résultats.</b> Les ressources mobilisées couvrent l'organisation des plénières et ateliers, la mini-foire et les 20 stands, la communication, la logistique, la séance gastronomique (250 couverts) ainsi que la production des livrables et la restitution.
+    </div>
+
+    <footer class="page__footer">
+      <span><b>www.ipeb.bj</b> · contact@ipeb.bj · +229 01 97 98 86 88</span>
+      <span>Cotonou · 26–27 novembre 2026 — <span class="page__num">06</span></span>
+    </footer>
+  </div>
+</section>
+
+<!-- ============ PAGE 7 — PARTENARIAT + CONTACT ============ -->
+<section class="page">
+  <div class="page__inner">
+    <header class="page__header">
+      <div class="page__brand">
+        <img src="assets/img/logo-ipeb.png" alt="" />
+        <span><b>IPEB</b><span>JoNaPEB 2026</span></span>
+      </div>
+      <span class="page__run">06 · Devenir partenaire</span>
+    </header>
+
+    <p class="label">06 — Rejoindre la dynamique</p>
+    <h2 class="title">Devenir partenaire<br /><em>des JoNaPEB 2026.</em></h2>
+    <p class="intro">Les partenaires contribuent à structurer une filière piscicole plus compétitive tout en bénéficiant d'une visibilité ciblée auprès des professionnels, décideurs et financeurs.</p>
+
+    <div class="tiers">
+      <article class="tier tier--platine">
+        <span class="tier__name">Platine</span>
+        <p class="tier__price">10 000 000 <small>FCFA</small></p>
+        <ul>
+          <li>Exclusivité de catégorie</li>
+          <li>Visibilité majeure</li>
+          <li>Stand privilégié</li>
+          <li>Intervention en plénière</li>
+          <li>10 invitations à la séance gastronomique</li>
+        </ul>
+      </article>
+      <article class="tier">
+        <span class="tier__name">Or</span>
+        <p class="tier__price">5 000 000 <small>FCFA</small></p>
+        <ul>
+          <li>Logo sur supports majeurs</li>
+          <li>Stand</li>
+          <li>Interview</li>
+          <li>6 invitations à la séance gastronomique</li>
+        </ul>
+      </article>
+      <article class="tier">
+        <span class="tier__name">Argent</span>
+        <p class="tier__price">2 500 000 <small>FCFA</small></p>
+        <ul>
+          <li>Logo sur supports</li>
+          <li>Stand</li>
+          <li>4 invitations à la séance gastronomique</li>
+        </ul>
+      </article>
+      <article class="tier">
+        <span class="tier__name">Bronze</span>
+        <p class="tier__price">1 000 000 <small>FCFA</small></p>
+        <ul>
+          <li>Présence sur le mur des partenaires</li>
+          <li>2 invitations à la séance gastronomique</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="partner-note">
+      <b>Partenariats techniques et contributions en nature.</b> Des appuis peuvent également être apportés en expertise, équipements, démonstrations numériques, prestations logistiques, communication ou prise en charge de rubriques budgétaires, sous réserve d'une convention précisant les engagements.
+    </div>
+
+    <div class="contact">
+      <div>
+        <p class="label label--light">Contact &amp; mobilisation</p>
+        <h3>Construisons ensemble<br /><em>l'édition 2026.</em></h3>
+        <p>Interprofession Poisson d'Élevage du Bénin — JoNaPEB 2026, les 26 et 27 novembre 2026 au Palais des Congrès de Cotonou.</p>
+      </div>
+      <div class="contact__card">
+        <b>IPEB</b>
+        +229 01 97 98 86 88<br />
+        +229 01 96 16 83 10<br />
+        contact@ipeb.bj<br />
+        www.ipeb.bj
+      </div>
+    </div>
+
+    <footer class="page__footer">
+      <span><b>www.ipeb.bj</b> · contact@ipeb.bj · +229 01 97 98 86 88</span>
+      <span>Cotonou · 26–27 novembre 2026 — <span class="page__num">07</span></span>
+    </footer>
+  </div>
+</section>
+
+</body>
+</html>

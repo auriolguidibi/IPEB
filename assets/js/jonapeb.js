@@ -51,12 +51,14 @@
   var status = document.getElementById("regStatus");
   var submitBtn = document.getElementById("regSubmit");
   var downloadBtn = document.getElementById("regDownload");
+  var whatsappBtn = document.getElementById("regWhatsApp");
   var resetBtn = document.getElementById("regReset");
   var nameInput = document.getElementById("regName");
   var successName = document.getElementById("regSuccessName");
   var successId = document.getElementById("regSuccessId");
   var qrPreview = document.getElementById("regQrPreview");
   var currentPdf = null;
+  var currentInfo = null;
   var qrPreviewSrc = null;
   var lastFocus = null;
 
@@ -175,10 +177,10 @@
     }, 30000);
   }
 
-  function loadLogo() {
-    return fetch("assets/img/logo-ipeb-180.png", { cache: "force-cache" })
+  function loadImage(url) {
+    return fetch(url, { cache: "force-cache" })
       .then(function (response) {
-        if (!response.ok) throw new Error("Logo indisponible");
+        if (!response.ok) throw new Error("Image indisponible");
         return response.blob();
       })
       .then(function (blob) {
@@ -233,7 +235,12 @@
     var JsPDF = (window.jspdf && window.jspdf.jsPDF) || window.jsPDF;
     if (!JsPDF) throw new Error("Bibliothèque PDF indisponible");
 
-    return loadLogo().then(function (logo) {
+    return Promise.all([
+      loadImage("assets/img/logo-ipeb-180.png"),
+      loadImage("assets/img/logo-jonapeb-light.png")
+    ]).then(function (images) {
+      var logo = images[0];
+      var jonapebLogo = images[1];
       var doc = new JsPDF({ unit: "mm", format: "a4", orientation: "portrait" });
 
       var navy = [10, 23, 48];
@@ -273,7 +280,8 @@
         doc.setGState(new doc.GState({ opacity: 1 }));
       }
 
-      if (logo) doc.addImage(logo, "PNG", 16, 14, 20, 20);
+      if (logo) doc.addImage(logo, "PNG", 16, 14, 20, 20, "ipeb-logo", "FAST");
+      if (jonapebLogo) doc.addImage(jonapebLogo, "PNG", 118, 10, 76, 16.2, "jonapeb-logo", "FAST");
 
       doc.setFont("helvetica", "bold");
       doc.setFontSize(15);
@@ -284,13 +292,6 @@
       doc.setFontSize(7);
       textColor([200, 214, 235]);
       doc.text("INTERPROFESSION DU POISSON D'ÉLEVAGE DU BÉNIN", 40, 28);
-
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(8);
-      textColor(gold);
-      doc.setCharSpace(1);
-      doc.text("ÉDITION 2026", 192, 20, { align: "right" });
-      doc.setCharSpace(0);
 
       doc.setFont("helvetica", "bold");
       doc.setFontSize(9);
@@ -451,7 +452,8 @@
       fill(gold);
       doc.rect(0, 34, 210, 1.4, "F");
 
-      if (logo) doc.addImage(logo, "PNG", 16, 8, 18, 18);
+      if (logo) doc.addImage(logo, "PNG", 16, 8, 18, 18, "ipeb-logo", "FAST");
+      if (jonapebLogo) doc.addImage(jonapebLogo, "PNG", 118, 7, 76, 16.2, "jonapeb-logo", "FAST");
 
       doc.setFont("helvetica", "bold");
       doc.setFontSize(11);
@@ -464,10 +466,10 @@
       doc.text("INTERPROFESSION DU POISSON D'ÉLEVAGE DU BÉNIN", 38, 21);
 
       doc.setFont("helvetica", "bold");
-      doc.setFontSize(7.5);
-      textColor(gold);
+      doc.setFontSize(7);
+      textColor(blue);
       doc.setCharSpace(0.8);
-      doc.text("PASS PARTICIPANT", 192, 16, { align: "right" });
+      doc.text("PASS PARTICIPANT", 194, 42, { align: "right" });
       doc.setCharSpace(0);
 
       var py = 50;
@@ -639,7 +641,13 @@
       .then(function (blob) {
         var filename =
           "Invitation-JoNaPEB-2026-" + (slugify(info.name) || "participant") + ".pdf";
-        currentPdf = { blob: blob, filename: filename };
+        currentPdf = { blob: blob, filename: filename, file: null };
+        try {
+          currentPdf.file = new File([blob], filename, { type: "application/pdf" });
+        } catch (error) {
+          currentPdf.file = null;
+        }
+        currentInfo = info;
         downloadBlob(blob, filename);
 
         if (successName) successName.textContent = info.name.split(" ")[0];
@@ -676,12 +684,53 @@
     });
   }
 
+  function sharePdfOnWhatsApp() {
+    if (!currentPdf) return;
+
+    var passId = currentInfo && currentInfo.passId ? currentInfo.passId : "";
+    var text =
+      "Voici mon invitation nominative au JoNaPEB 2026" +
+      (passId ? " (pass " + passId + ")" : "") +
+      ".";
+    var file = currentPdf.file;
+
+    try {
+      if (file && navigator.canShare && navigator.canShare({ files: [file] })) {
+        navigator
+          .share({
+            files: [file],
+            title: "Invitation JoNaPEB 2026",
+            text: text
+          })
+          .catch(function () {});
+        return;
+      }
+    } catch (error) {
+      // Fallback below.
+    }
+
+    downloadBlob(currentPdf.blob, currentPdf.filename);
+    var message =
+      text +
+      " Le PDF vient d'être téléchargé : joignez-le à ce message WhatsApp.";
+    var url = "https://wa.me/?text=" + encodeURIComponent(message);
+    var win = window.open(url, "_blank", "noopener");
+    if (!win) {
+      setStatus("Le PDF a été téléchargé. Ouvrez WhatsApp pour l'envoyer.", false);
+    }
+  }
+
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener("click", sharePdfOnWhatsApp);
+  }
+
   if (resetBtn) {
     resetBtn.addEventListener("click", function () {
       form.reset();
       form.hidden = false;
       success.hidden = true;
       currentPdf = null;
+      currentInfo = null;
       qrPreviewSrc = null;
       if (qrPreview) qrPreview.removeAttribute("src");
       setStatus("");
