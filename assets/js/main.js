@@ -217,7 +217,7 @@
   var status = document.getElementById("formStatus");
 
   if (form) {
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
       event.preventDefault();
 
       if (!form.checkValidity()) {
@@ -237,29 +237,40 @@
       var sujet = (data.get("sujet") || "").toString().trim();
       var profil = (data.get("profil") || "").toString();
       var message = (data.get("message") || "").toString().trim();
-
-      var body = [
-        "Objet : " + (sujet || "—"),
-        "Nom : " + name,
-        "Structure : " + (structure || "—"),
-        "E-mail : " + email,
-        "Téléphone : " + (phone || "—"),
-        "Profil : " + (profil || "—"),
-        "",
-        "Message :",
-        message || "—"
-      ].join("\n");
-
-      var href = "mailto:contact@ipeb.bj?subject=" +
-        encodeURIComponent((sujet || "Demande") + " — IPEB — " + name) +
-        "&body=" + encodeURIComponent(body);
-
+      var submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) submitButton.disabled = true;
       if (status) {
         status.classList.remove("is-error");
-        status.textContent = "Merci " + name + ". Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi.";
+        status.textContent = "Envoi de votre demande…";
       }
 
-      window.location.href = href;
+      try {
+        var response = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: name,
+            structure: structure,
+            email: email,
+            phone: phone,
+            sujet: sujet,
+            profil: profil,
+            message: message
+          })
+        });
+        var result = await response.json();
+        if (!response.ok) throw new Error(result.error || "L’envoi de votre demande a échoué.");
+
+        if (status) status.textContent = result.message || "Votre demande a bien été envoyée à l’IPEB.";
+        form.reset();
+      } catch (error) {
+        if (status) {
+          status.classList.add("is-error");
+          status.textContent = error.message || "Impossible d’envoyer votre demande pour le moment.";
+        }
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
     });
   }
 

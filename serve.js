@@ -33,9 +33,142 @@ function isInsideRoot(filePath) {
   return filePath === ROOT || filePath.startsWith(ROOT + path.sep);
 }
 
-const server = http.createServer((req, res) => {
+function sendJson(res, status, data) {
+  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+  res.end(JSON.stringify(data));
+}
+
+function readJsonBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = '';
+    let size = 0;
+    let tooLarge = false;
+
+    req.setEncoding('utf8');
+    req.on('data', (chunk) => {
+      size += Buffer.byteLength(chunk, 'utf8');
+      if (size > 10 * 1024) {
+        tooLarge = true;
+      } else if (!tooLarge) {
+        body += chunk;
+      }
+    });
+    req.on('end', () => {
+      if (tooLarge) {
+        const error = new Error('Request body is too large');
+        error.statusCode = 413;
+        return reject(error);
+      }
+
+      try {
+        resolve(JSON.parse(body));
+      } catch {
+        const error = new Error('Invalid JSON body');
+        error.statusCode = 400;
+        reject(error);
+      }
+    });
+    req.on('error', reject);
+  });
+}
+
+async function handleContact(req, res) {
   try {
-    const urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
+    if (!String(req.headers['content-type'] || '').startsWith('application/json')) {
+      return sendJson(res, 415, { error: 'Le format de la demande est invalide.' });
+    }
+
+    const data = await readJsonBody(req);
+    if (!data || typeof data !== 'object' || Array.isArray(data)) {
+      return sendJson(res, 400, { error: 'Les informations du formulaire sont invalides.' });
+    }
+
+    const limits = {
+      name: 120,
+      structure: 200,
+      email: 254,
+      phone: 40,
+      sujet: 120,
+      profil: 120,
+      message: 5000,
+    };
+    const fields = {};
+    for (const [key, limit] of Object.entries(limits)) {
+      if (data[key] !== undefined && typeof data[key] !== 'string') {
+        return sendJson(res, 400, { error: 'Les informations du formulaire sont invalides.' });
+      }
+      fields[key] = (data[key] || '').trim();
+      if (fields[key].length > limit) {
+        return sendJson(res, 400, { error: 'Un ou plusieurs champs dépassent la longueur autorisée.' });
+      }
+    }
+
+    if (!fields.name || !fields.sujet || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
+      return sendJson(res, 400, { error: 'Veuillez vérifier votre nom, votre e-mail et l’objet de la demande.' });
+    }
+
+    const apiKey = process.env.RESEND_API_KEY;
+    const from = process.env.RESEND_FROM_EMAIL;
+    if (!apiKey || !from) {
+      console.error('Contact form email is not configured: set RESEND_API_KEY and RESEND_FROM_EMAIL.');
+      return sendJson(res, 503, { error: 'Le formulaire est temporairement indisponible. Vous pouvez nous écrire à contact@ipeb.bj.' });
+    }
+
+    const text = [
+      'Objet : ' + fields.sujet,
+      'Nom : ' + fields.name,
+      'Structure : ' + (fields.structure || '—'),
+      'E-mail : ' + fields.email,
+      'Téléphone : ' + (fields.phone || '—'),
+      'Profil : ' + (fields.profil || '—'),
+      '',
+      'Message :',
+      fields.message || '—',
+    ].join('\n');
+
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from,
+        to: ['contact@ipeb.bj'],
+        reply_to: fields.email,
+        subject: fields.sujet + ' — IPEB — ' + fields.name,
+        text,
+      }),
+    });
+
+    if (!response.ok) {
+      console.error('Contact form email provider returned HTTP ' + response.status + '.');
+      return sendJson(res, 502, { error: 'L’envoi a échoué. Veuillez réessayer ou nous écrire à contact@ipeb.bj.' });
+    }
+
+    return sendJson(res, 200, { message: 'Votre demande a bien été envoyée à l’IPEB.' });
+  } catch (error) {
+    if (error.statusCode) {
+      return sendJson(res, error.statusCode, {
+        error: error.statusCode === 413
+          ? 'Le formulaire est trop volumineux.'
+          : 'Le formulaire reçu est invalide.',
+      });
+    }
+    console.error('Contact form email delivery failed:', error.message);
+    return sendJson(res, 502, { error: 'Impossible d’envoyer votre demande pour le moment. Veuillez réessayer.' });
+  }
+}
+
+const server = http.createServer((req, res) => {
+  const requestUrl = new URL(req.url || '/', 'http://localhost');
+  if (req.method === 'POST' && requestUrl.pathname === '/api/contact') {
+    handleContact(req, res);
+    return;
+  }
+
+  try {
+    const urlPath = decodeURIComponent(requestUrl.pathname);
     let filePath = path.normalize(path.join(ROOT, urlPath));
     if (!isInsideRoot(filePath)) return send404(res);
 
